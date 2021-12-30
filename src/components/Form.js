@@ -28,7 +28,8 @@ const { title,
                 onChange={e => setAuthor(e.target.value)}
                 />
             <label>ISBN#</label>
-            <input 
+            <input
+                required
                 type="text" 
                 value={isbn}
                 onChange={e => setIsbn(e.target.value)}
