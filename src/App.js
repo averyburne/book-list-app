@@ -30,6 +30,9 @@ const App = () => {
           setIsbn={setIsbn}
           currentBookId={currentBookId}
         />
+        <Table 
+          books={books}
+        />
       </div>
     </div>
   );
