@@ -8,10 +8,11 @@ const { title,
         setAuthor,
         isbn,
         setIsbn,
-        currentBookId } = props
+        currentBookId,
+        handleSubmit } = props
 
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>Title</label>
             <input 
                 autoFocus
