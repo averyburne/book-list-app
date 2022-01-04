@@ -3,7 +3,16 @@ import TableField from './TableField'
 
 const Table = ({ books }) => {
 
-
+    const booksJSX = books.map(book => 
+        <div key={book.bookId} className="tableRow">
+            <TableField fieldName={book.bookTitle}/>
+            <TableField fieldName={book.bookAuthor}/>
+            <TableField fieldName={book.bookIsbn}/>
+            <TableField settingsField />
+        </div>
+    )
+    console.log(books)
+    console.log(booksJSX)
     return(
         <div className="table">
             <div className="tableHeading">
@@ -12,14 +21,7 @@ const Table = ({ books }) => {
                 <TableField fieldName={"ISBN#"}/>
                 <TableField fieldName={"Settings"}/>
             </div>
-            {books.map(book => {
-                <div id={book.bookId} className="tableRow">
-                    <TableField fieldName={book.bookTitle}/>
-                    <TableField fieldName={book.bookAuthor}/>
-                    <TableField fieldName={book.bookIsbn}/>
-                    <TableField fieldName={book.bookId}/>
-                </div>
-            })}
+            {booksJSX}
         </div>
     )
 }

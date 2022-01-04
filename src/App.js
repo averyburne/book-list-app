@@ -11,15 +11,30 @@ const App = () => {
   const [currentBookId, setCurrentBookId] = useState(null)
   const [books, setBooks] = useState([
     {
-      bookTitle: title,
-      bookAuthor: author,
-      bookIsbn: isbn,
+      bookTitle: "Infinite Jest",
+      bookAuthor: "DFW",
+      bookIsbn: "999",
       bookId: uuidv4()
     }
   ])
 
+  const addBook = () => {
+    setBooks([
+      ...books, 
+      {
+        bookTitle: title,
+        bookAuthor: author,
+        bookIsbn: isbn,
+        bookId: uuidv4()
+      }
+    ])
+    console.log('hi')
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    addBook()
   }
 
   return (
