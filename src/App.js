@@ -18,6 +18,17 @@ const App = () => {
     }
   ])
 
+  const isInputInvalid = () => {
+    return (
+      title.trim() === "" || author.trim() === "" || isbn.trim() === ""
+    )
+  }
+  const clearInputs = () => {
+    setTitle('')
+    setAuthor('')
+    setIsbn('')
+  }
+
   const addBook = () => {
     setBooks([
       ...books, 
@@ -33,8 +44,14 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    clearInputs()
 
+    if (isInputInvalid()) return
     addBook()
+  }
+
+  const removeBook = (id) => {
+    setBooks(books.filter(book => book.bookId !== id))
   }
 
   return (
@@ -52,6 +69,7 @@ const App = () => {
         />
         <Table 
           books={books}
+          removeBook={removeBook}
         />
       </div>
     </div>
