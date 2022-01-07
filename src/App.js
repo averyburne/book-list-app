@@ -39,14 +39,25 @@ const App = () => {
         bookId: uuidv4()
       }
     ])
-    console.log('hi')
+  }
+
+  const editBook = (book) => {
+    setTitle(book.bookTitle)
+    setAuthor(book.bookAuthor)
+    setIsbn(book.bookIsbn)
+
+    setCurrentBookId(book.bookId)
+  }
+
+  const updateBook = (book) => {
+    setBooks(books.map(book => book.bookId === currentBookId ? {...books, bookTitle: title, bookAuthor: author, bookIsbn: isbn} : book))
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     clearInputs()
-
     if (isInputInvalid()) return
+    !currentBookId ? addBook() : updateBook()
     addBook()
   }
 
@@ -70,6 +81,7 @@ const App = () => {
         <Table 
           books={books}
           removeBook={removeBook}
+          editBook={editBook}
         />
       </div>
     </div>

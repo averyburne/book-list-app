@@ -1,14 +1,16 @@
 import React from 'react'
 import TableField from './TableField'
 
-const Table = ({ books, removeBook }) => {
+const Table = ({ books, removeBook, editBook }) => {
 
     const booksJSX = books.map(book => 
         <div key={book.bookId} className="tableRow">
             <TableField fieldName={book.bookTitle}/>
             <TableField fieldName={book.bookAuthor}/>
             <TableField fieldName={book.bookIsbn}/>
-            <TableField settingsField removeBook={() => removeBook(book.bookId)}/>
+            <TableField settingsField 
+            removeBook={() => removeBook(book.bookId)}
+            editBook={() => editBook(book.bookId)}/>
         </div>
     )
 
