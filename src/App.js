@@ -17,7 +17,7 @@ const App = () => {
       bookId: uuidv4()
     }
   ])
-
+  console.log(currentBookId)
   const isInputInvalid = () => {
     return (
       title.trim() === "" || author.trim() === "" || isbn.trim() === ""
@@ -45,17 +45,20 @@ const App = () => {
     setTitle(book.bookTitle)
     setAuthor(book.bookAuthor)
     setIsbn(book.bookIsbn)
-
+    console.log(book)
+    console.log(book.bookId)
     setCurrentBookId(book.bookId)
+    console.log(currentBookId)
   }
 
-  const updateBook = (book) => {
+  const updateBook = () => {
     setBooks(books.map(book => book.bookId === currentBookId ? {...books, bookTitle: title, bookAuthor: author, bookIsbn: isbn} : book))
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     clearInputs()
+    console.log(currentBookId)
     if (isInputInvalid()) return
     !currentBookId ? addBook() : updateBook()
     addBook()

@@ -35,7 +35,9 @@ const { title,
                 value={isbn}
                 onChange={e => setIsbn(e.target.value)}
             />
-            <button tabIndex="0" type="submit">{currentBookId !== null ? "Update" : "Add"}</button>
+            <button tabIndex="0" type="submit">{currentBookId !== null ? "Update" : "Add"}
+            </button>
+            {currentBookId !== null && <button>Cancel</button>}
         </form>
     )
 }

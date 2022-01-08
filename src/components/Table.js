@@ -10,7 +10,7 @@ const Table = ({ books, removeBook, editBook }) => {
             <TableField fieldName={book.bookIsbn}/>
             <TableField settingsField 
             removeBook={() => removeBook(book.bookId)}
-            editBook={() => editBook(book.bookId)}/>
+            editBook={() => editBook(book)}/>
         </div>
     )
 
