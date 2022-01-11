@@ -9,7 +9,8 @@ const { title,
         isbn,
         setIsbn,
         currentBookId,
-        handleSubmit } = props
+        handleSubmit,
+        cancelEdit } = props
 
     return(
         <form onSubmit={handleSubmit}>
@@ -37,7 +38,7 @@ const { title,
             />
             <button tabIndex="0" type="submit">{currentBookId !== null ? "Update" : "Add"}
             </button>
-            {currentBookId !== null && <button>Cancel</button>}
+            {currentBookId !== null && <button onClick={cancelEdit}>Cancel</button>}
         </form>
     )
 }

@@ -58,14 +58,18 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     clearInputs()
-    console.log(currentBookId)
+    setCurrentBookId(null)
     if (isInputInvalid()) return
     !currentBookId ? addBook() : updateBook()
-    addBook()
   }
 
   const removeBook = (id) => {
     setBooks(books.filter(book => book.bookId !== id))
+  }
+
+  const cancelEdit = () => {
+    clearInputs()
+    setCurrentBookId(null)
   }
 
   return (
@@ -80,6 +84,7 @@ const App = () => {
           setIsbn={setIsbn}
           currentBookId={currentBookId}
           handleSubmit={handleSubmit}
+          cancelEdit={cancelEdit}
         />
         <Table 
           books={books}
