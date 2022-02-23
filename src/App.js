@@ -12,8 +12,8 @@ const App = () => {
   const [books, setBooks] = useState([
     {
       bookTitle: "Infinite Jest",
-      bookAuthor: "DFW",
-      bookIsbn: "999",
+      bookAuthor: "David Foster Wallace",
+      bookIsbn: "0001",
       bookId: uuidv4()
     }
   ])
@@ -45,10 +45,7 @@ const App = () => {
     setTitle(book.bookTitle)
     setAuthor(book.bookAuthor)
     setIsbn(book.bookIsbn)
-    console.log(book)
-    console.log(book.bookId)
     setCurrentBookId(book.bookId)
-    console.log(currentBookId)
   }
 
   const updateBook = () => {
